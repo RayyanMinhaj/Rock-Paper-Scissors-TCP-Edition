@@ -1,0 +1,13 @@
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\bin\Debug\CN Project - Client (Player 2).exe.config
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\bin\Debug\CN Project - Client (Player 2).exe
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\bin\Debug\CN Project - Client (Player 2).pdb
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN Project - Client (Player 2).csproj.AssemblyReference.cache
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN Project - Client (Player 2).csproj.SuggestedBindingRedirects.cache
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN_Project___Client__Player_2_.Form1.resources
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN_Project___Client__Player_2_.Properties.Resources.resources
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN Project - Client (Player 2).csproj.GenerateResource.cache
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN Project - Client (Player 2).csproj.CoreCompileInputs.cache
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN Project - Client (Player 2).exe
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN Project - Client (Player 2).pdb
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN_Project___Client__Player_2_.EndScreen.resources
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Client (Player 2)\obj\Debug\CN_Project___Client__Player_2_.StartScreen.resources
