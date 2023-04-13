@@ -21,12 +21,14 @@ namespace CN_Project___Client__Player_2_
         private static int win = 0;
         private static int loss = 0;
         private static string x="none";
-        private static int flag = 0;
 
         public static int i=1;
         public static int num_rounds = 0;
         //display prev record
         string disp_rec = "";
+
+        //end variables
+        /// /////////////////////////////////////////////////////////////////////
 
         public Form1()
         {
@@ -34,6 +36,12 @@ namespace CN_Project___Client__Player_2_
         }
 
 
+
+
+
+
+        //a thread function to initiate UI change which indicate 
+        //that you have selected the option and are waiting on OTHER player 
         private void waiting_player()
         {
             button5.Enabled = false;
@@ -43,7 +51,7 @@ namespace CN_Project___Client__Player_2_
 
         }
 
-
+        //SUBMIT BUTTON - same functionality as server side submit button
         private void button5_Click(object sender, EventArgs e)
         {
             try
@@ -138,11 +146,10 @@ namespace CN_Project___Client__Player_2_
 
                 label6.Text = "Round " + (i + 1);
                 i++;
-                flag = 0;
                 button2.Enabled = true;
                 button3.Enabled = true;
                 button4.Enabled = true;
-                button5.Enabled = true;
+                button5.Enabled = false;
                 label8.Text = "";
                 //label7.Text = "";
 
@@ -200,6 +207,10 @@ namespace CN_Project___Client__Player_2_
 
 
 
+
+
+
+        //CONNECT button
         private void button1_Click(object sender, EventArgs e)
         {
             int port;
@@ -220,13 +231,14 @@ namespace CN_Project___Client__Player_2_
                 button2.Enabled = true;
                 button3.Enabled = true;
                 button4.Enabled = true;
-                button5.Enabled = true;
+                //button5.Enabled = true;
 
                 //recv num of rounds here
                 byte[] recvBuffer = new byte[serverSocket.SendBufferSize];
                 int bytesReceived = serverSocket.Receive(recvBuffer);
                 string recvMessage = Encoding.ASCII.GetString(recvBuffer);
 
+                //recvs num of rounds from server (player 1 - who inputs num of rounds)
                 num_rounds=Convert.ToInt32(recvMessage);
                 /////////////////////////
 
@@ -242,60 +254,58 @@ namespace CN_Project___Client__Player_2_
 
         }
 
+
+
+
+
+
+
+        //The following 3 buttons are for selecting ROCK, PAPER OR SCISSOR
+        //after selecting your option, the other options are blocked out
+        //and it prompts you to click the submit button 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (flag == 0)
-            {
-                x = "Rock";
-                flag = 1;
-                label6.Text = label6.Text + " (Locked in)";
-                button2.Enabled = false;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                label7.Text = "press ---->";
-            }
-            else
-            {
-                MessageBox.Show("You have already locked in choice!");
-            }
+            x = "Rock";
+            label6.Text = label6.Text + " (Locked in)";
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = true;
+            label7.Text = "press ---->";
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (flag == 0)
-            {
-                x = "Paper";
-                flag = 1;
-                label6.Text = label6.Text + " (Locked in)";
-                button2.Enabled = false;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                label7.Text = "press ---->";
-            }
-            else
-            {
-                MessageBox.Show("You have already locked in choice!");
-            }
+            x = "Paper";
+            label6.Text = label6.Text + " (Locked in)";
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = true;
+            label7.Text = "press ---->";
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (flag == 0)
-            {
-                x = "Scissor";
-                flag = 1;
-                label6.Text = label6.Text + " (Locked in)";
-                button2.Enabled = false;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                label7.Text = "press ---->";
-            }
-            else
-            {
-                MessageBox.Show("You have already locked in choice!");
-            }
+             x = "Scissor";
+             label6.Text = label6.Text + " (Locked in)";
+             button2.Enabled = false;
+             button3.Enabled = false;
+             button4.Enabled = false;
+             button5.Enabled = true;
+             label7.Text = "press ---->";
+
         }
 
+
+
+
+
+
+
+        //Before form loads, we start up the start screen form firstly
         private void Form1_Load(object sender, EventArgs e)
         {
             StartScreen scr = new StartScreen();

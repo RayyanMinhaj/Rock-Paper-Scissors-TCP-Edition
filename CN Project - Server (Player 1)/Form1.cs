@@ -31,30 +31,28 @@ namespace CN_Project___Server__Player_1_
         public static int i = 1;
         public static int num_rounds = 0;
 
-        //public delegate void labelDelegate();
         //display prev record
         string disp_rec = "";
 
-        private static int flag = 0;
-
+        //end variables
+        ///////////////////////////////////////////////////////////////////////////////////////
         
         public Form1()
         {
             InitializeComponent();
         }
-
-
-
+        //no use
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void change_tb()
-        {
-            textBox2.Text = "Waiting for connection";
-        }
 
+
+
+
+
+        //thread func which establishes connection 
         private void threadfunc(object port)
         {
             //Create new server socket to listen for incoming connections
@@ -73,7 +71,7 @@ namespace CN_Project___Server__Player_1_
                 return;
             }
 
-            //Accept an incoming connection
+            //Accept an incoming connection and passes it to clientSocket if accepted.
             try
             {
                 clientSocket = listenerSocket.Accept();
@@ -86,11 +84,11 @@ namespace CN_Project___Server__Player_1_
             }
             
 
-            //Listener socket is no longer needed so we can close it now
             
 
         }
 
+        //start listening button
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -102,94 +100,86 @@ namespace CN_Project___Server__Player_1_
             int port;
             Int32.TryParse(textBox1.Text, out port);
 
-
+            //creates a new thread so that we can change UI elements in this event handler because
+            //we can not alter labels/textboxes while blocking call is running
+            //(vice versa is also possible)
             Thread t1 = new Thread(threadfunc);
             t1.IsBackground = true;
             t1.Start(port);
             t1.Join();
 
-            //blocking user from making any decision till connection established
+            //blocking user from making any decisions till connection established
             textBox2.Text = "Connected";
             button2.Enabled = true;
             button3.Enabled = true;
             button4.Enabled = true;
-            button5.Enabled = true;
+            
 
-            //send num of rounds here
+            //send num of rounds to other players program here!
             byte[] sendData = Encoding.ASCII.GetBytes(num_rounds.ToString());
             clientSocket.Send(sendData);
             ///////////////////////
 
+            //start game
             label6.Text = "Round 1";
-
-
-            //here we can choose to do it without thread since we are not constantly waiting for message
-            //to be delivered and recieved.
 
         }
 
+
+
+
+
+
+
+        //The following 3 buttons are for selecting ROCK, PAPER OR SCISSOR
+        //after selecting your option, the other options are blocked out
+        //and it prompts you to click the submit button 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (flag == 0)
-            {
-                x = "Rock";
-                flag = 1;
-                label6.Text = label6.Text + " (Locked in)";
-                button2.Enabled = false;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                label7.Text = "press  ---->";
-            }
-            else
-            {
-                MessageBox.Show("You have already locked in choice!");
-            }
-            
+            x = "Rock";
+            label6.Text = label6.Text + " (Locked in)";
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = true;
+            label7.Text = "press  ---->";
             
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (flag == 0)
-            {
-                x = "Paper";
-                flag = 1;
-                label6.Text = label6.Text + " (Locked in)";
-                button2.Enabled = false;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                label7.Text = "press  ---->";
 
-            }
-            else
-            {
-                MessageBox.Show("You have already locked in choice!");
-            }
+            x = "Paper";
+            label6.Text = label6.Text + " (Locked in)";
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = true;
+            label7.Text = "press  ---->";
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (flag == 0)
-            {
-                x = "Scissor";
-                flag = 1;
-                label6.Text = label6.Text + " (Locked in)";
-                button2.Enabled = false;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                label7.Text = "press  ---->";
-
-            }
-            else
-            {
-                MessageBox.Show("You have already locked in choice!");
-            }
+            x = "Scissor";
+            label6.Text = label6.Text + " (Locked in)";
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = true;
+            label7.Text = "press  ---->";
 
         }
 
 
+        
 
+
+
+
+
+        //a thread function to initiate UI change which indicate 
+        //that you have selected the option and are waiting on OTHER player 
         private void waiting_player()
         {
             button5.Enabled= false;
@@ -199,11 +189,7 @@ namespace CN_Project___Server__Player_1_
 
         }
 
-
-
-
-
-
+        //SUBMIT BUTTON
         private void button5_Click(object sender, EventArgs e)
         {
             Thread t1 = new Thread(waiting_player);
@@ -213,8 +199,8 @@ namespace CN_Project___Server__Player_1_
 
 
 
-            byte[] recvBuffer = new byte[clientSocket.SendBufferSize];
-            byte[] sendData = Encoding.ASCII.GetBytes(x);
+            byte[] recvBuffer = new byte[clientSocket.SendBufferSize]; //recv buffer to store the choice from other player
+            byte[] sendData = Encoding.ASCII.GetBytes(x); //sending our choice to other player
             int bytesReceived;
             string recvMessage=" ";
             
@@ -300,14 +286,15 @@ namespace CN_Project___Server__Player_1_
             }
 
 
+            //one round has been computed and now we move on to next by incrementing round counter
+            //enabling all the buttons and checking if round limit has been reached 
             label6.Text = "Round " + (i + 1);
             i++;
-            flag = 0;
 
             button2.Enabled = true;
             button3.Enabled = true;
             button4.Enabled = true;
-            button5.Enabled = true; 
+            button5.Enabled = false; 
             //label7.Text = "";
             label8.Text = "";
 
@@ -320,7 +307,7 @@ namespace CN_Project___Server__Player_1_
 
         }
 
-
+        //once round limit has been reached we can simply compute winner and close the socket
         private void close_sckt()
         {
             //sum to determine who won and who lost
@@ -350,6 +337,8 @@ namespace CN_Project___Server__Player_1_
 
             textBox2.Text = "Not Connected";
 
+
+            //here we are sending the result to final window as well (just for aesthetic, no real use)
             EndScreen scr = new EndScreen(sum);
             scr.ShowDialog();
 
@@ -360,28 +349,30 @@ namespace CN_Project___Server__Player_1_
 
 
 
+
+
+        //no use
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        //INITIALLY, we display a round selecting window first and foremost
         private void Form1_Load(object sender, EventArgs e)
         {
-            //StartScreen screen = new StartScreen();
-            //screen.ShowDialog();
 
             using (StartScreen scr = new StartScreen())
             {
                 var res = scr.ShowDialog();
                 if (res == DialogResult.OK)
                 {
+                    //pass the num of rounds entered in prev form to this one for computation
                     num_rounds = scr.rounds;
-                    //MessageBox.Show(Convert.ToString(num_rounds));
                 }
             }
 
 
-
+            //also block all buttons before connection is established
             button2.Enabled = false;
             button3.Enabled = false;
             button4.Enabled = false;
