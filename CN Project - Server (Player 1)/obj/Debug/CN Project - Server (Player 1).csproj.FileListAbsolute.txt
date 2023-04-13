@@ -11,3 +11,16 @@ C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Server (Player 1)\obj\Debug
 C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Server (Player 1)\obj\Debug\CN Project - Server (Player 1).pdb
 C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Server (Player 1)\obj\Debug\CN_Project___Server__Player_1_.StartScreen.resources
 C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\CN Project - Server (Player 1)\obj\Debug\CN_Project___Server__Player_1_.EndScreen.resources
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\bin\Debug\CN Project - Server (Player 1).exe.config
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\bin\Debug\CN Project - Server (Player 1).exe
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\bin\Debug\CN Project - Server (Player 1).pdb
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN Project - Server (Player 1).csproj.AssemblyReference.cache
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN Project - Server (Player 1).csproj.SuggestedBindingRedirects.cache
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN_Project___Server__Player_1_.Form1.resources
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN_Project___Server__Player_1_.EndScreen.resources
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN_Project___Server__Player_1_.Properties.Resources.resources
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN_Project___Server__Player_1_.StartScreen.resources
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN Project - Server (Player 1).csproj.GenerateResource.cache
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN Project - Server (Player 1).csproj.CoreCompileInputs.cache
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN Project - Server (Player 1).exe
+C:\Users\rayya\Desktop\SEM 6\CN\PROJECT\Rock-Paper-Scissors-TCP-Edition\CN Project - Server (Player 1)\obj\Debug\CN Project - Server (Player 1).pdb

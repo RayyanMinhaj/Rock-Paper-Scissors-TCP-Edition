@@ -50,10 +50,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 212);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(226, 233);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(323, 29);
+            this.label2.Size = new System.Drawing.Size(245, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Created by Rayyan M. Minhaj";
             this.label2.Click += new System.EventHandler(this.label2_Click);

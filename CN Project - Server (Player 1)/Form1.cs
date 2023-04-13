@@ -37,11 +37,13 @@ namespace CN_Project___Server__Player_1_
 
         private static int flag = 0;
 
-
+        
         public Form1()
         {
             InitializeComponent();
         }
+
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -186,18 +188,35 @@ namespace CN_Project___Server__Player_1_
 
         }
 
-        
-        
-        
+
+
+        private void waiting_player()
+        {
+            button5.Enabled= false;
+            label7.Text = "";
+            label8.Text = "(Waiting for other player)";
+
+
+        }
+
+
+
+
+
+
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            Thread t1 = new Thread(waiting_player);
+            t1.IsBackground = true;
+            t1.Start();
+            t1.Join();
+
 
 
             byte[] recvBuffer = new byte[clientSocket.SendBufferSize];
             byte[] sendData = Encoding.ASCII.GetBytes(x);
             int bytesReceived;
-            string recvMessage;
+            string recvMessage=" ";
             
             //sending p1 choice
             clientSocket.Send(sendData);
@@ -210,7 +229,6 @@ namespace CN_Project___Server__Player_1_
             //Convert the raw bytes into encoded string
             recvMessage = Encoding.ASCII.GetString(recvBuffer);
 
-            
 
             //now we will implement rock paper scissor rules
             //there are just 6 conditions (3 winning and 3 losing) so we can do it 
@@ -289,7 +307,9 @@ namespace CN_Project___Server__Player_1_
             button2.Enabled = true;
             button3.Enabled = true;
             button4.Enabled = true;
-            label7.Text = "";
+            button5.Enabled = true; 
+            //label7.Text = "";
+            label8.Text = "";
 
             if (i == num_rounds+1)
             {

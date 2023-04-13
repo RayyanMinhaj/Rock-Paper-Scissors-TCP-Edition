@@ -33,20 +33,34 @@ namespace CN_Project___Client__Player_2_
             InitializeComponent();
         }
 
-       
-        
-        
+
+        private void waiting_player()
+        {
+            button5.Enabled = false;
+            label7.Text = "";
+            label8.Text = "(Waiting for other player)";
+
+
+        }
+
+
         private void button5_Click(object sender, EventArgs e)
         {
             try
             {
+                Thread t1 = new Thread(waiting_player);
+                t1.IsBackground = true;
+                t1.Start();
+                t1.Join();
+
                 //Receive the message in a buffer and resize the buffer to fit the message
+                string recvMessage = " ";
                 byte[] recvBuffer = new byte[serverSocket.SendBufferSize];
                 int bytesReceived = serverSocket.Receive(recvBuffer);
                 Array.Resize(ref recvBuffer, bytesReceived);
 
-                string recvMessage = Encoding.ASCII.GetString(recvBuffer);
-                //MessageListBox.BeginInvoke(new listboxDelegate(AddToListBox), recvMessage, false);
+                
+                recvMessage = Encoding.ASCII.GetString(recvBuffer);
 
 
                 byte[] sendData = Encoding.ASCII.GetBytes(x);
@@ -128,7 +142,9 @@ namespace CN_Project___Client__Player_2_
                 button2.Enabled = true;
                 button3.Enabled = true;
                 button4.Enabled = true;
-                label7.Text = "";
+                button5.Enabled = true;
+                label8.Text = "";
+                //label7.Text = "";
 
 
 
